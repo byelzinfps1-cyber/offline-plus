@@ -1,0 +1,46 @@
+:root{--bg:#050a18;--painel:#0c1630;--neon:#19b8ff;--txt:#e8f1ff;--mut:#7f93b8;--erro:#ff6b81}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{height:calc(100% - 64px - env(safe-area-inset-bottom,0px));overflow:hidden}
+.tela{display:none;height:100%;overflow-y:auto;padding:calc(18px + env(safe-area-inset-top,0px)) 16px 24px}
+.tela.ativa{display:block}
+h1{font-size:2.4rem;letter-spacing:.02em}h1 span{color:var(--neon);text-shadow:0 0 14px var(--neon)}
+h2{margin-bottom:14px}.sub{color:var(--mut);margin:4px 0 18px}
+.card{background:var(--painel);border:1px solid #16305e;border-radius:18px;padding:16px;margin-bottom:14px}
+.card p{color:var(--mut);margin-top:6px;line-height:1.45}
+.barra{height:8px;background:#13234a;border-radius:8px;margin:10px 0 6px;overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--neon);box-shadow:0 0 10px var(--neon);border-radius:8px}
+small,.aviso{color:var(--mut);font-size:.85rem;line-height:1.4}
+.aviso{margin:10px 0}.aviso.erro{color:var(--erro)}
+.btn{display:block;width:100%;text-align:center;border:0;border-radius:999px;padding:14px;margin-bottom:10px;font-size:1rem;font-weight:600;background:var(--neon);color:#021024;cursor:pointer}
+.btn.sec{background:transparent;color:var(--neon);border:1.5px solid var(--neon)}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#070f24;border-top:1px solid #16305e;padding-bottom:env(safe-area-inset-bottom,0px);height:calc(64px + env(safe-area-inset-bottom,0px))}
+nav button{flex:1;background:none;border:0;color:var(--mut);font-size:.82rem}
+nav button.on{color:var(--neon);text-shadow:0 0 10px var(--neon)}
+.seg{display:flex;background:var(--painel);border-radius:999px;padding:4px;margin-bottom:12px}
+.seg button{flex:1;border:0;background:none;color:var(--mut);padding:9px;border-radius:999px;font-weight:600}
+.seg button.on{background:var(--neon);color:#021024}
+input[type=search],input[type=number],select{width:100%;background:var(--painel);border:1px solid #16305e;color:var(--txt);border-radius:999px;padding:12px 16px;font-size:1rem;margin-bottom:10px}
+.campo{display:block;color:var(--mut);margin-bottom:12px}.campo select,.campo input{margin-top:6px}
+.linha{display:flex;gap:10px;align-items:center;padding:10px 0}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px}
+.chips button{flex:none;border:1px solid #16305e;background:var(--painel);color:var(--txt);padding:7px 14px;border-radius:999px}
+.chips button.on{border-color:var(--neon);color:var(--neon)}
+.item{display:flex;gap:12px;align-items:center;background:var(--painel);border-radius:16px;padding:12px;margin-bottom:10px}
+.item .info{flex:1;min-width:0}.item b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item small{display:block}.item .acoes{display:flex;gap:6px}
+.item button{border:1px solid #1f3d78;background:none;color:var(--txt);border-radius:999px;padding:8px 12px}
+.item .del{color:var(--erro);border-color:#5a2236}
+.vazio{color:var(--mut);text-align:center;padding:30px 10px;line-height:1.5}
+.shorts{height:100%;overflow-y:scroll;scroll-snap-type:y mandatory}
+.short{height:100%;scroll-snap-align:start;position:relative;background:#000;border-radius:18px;margin-bottom:8px}
+.short video{width:100%;height:100%;object-fit:contain;border-radius:18px}
+.short span{position:absolute;left:14px;bottom:14px;background:#000a;padding:6px 12px;border-radius:999px;font-size:.85rem}
+#player{position:fixed;inset:0;background:#000;z-index:10;display:flex;flex-direction:column}
+#player[hidden]{display:none}
+#pv{flex:1;width:100%;min-height:0;object-fit:contain}
+.pbar{display:flex;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px))}
+.pbar button{flex:1;border:1.5px solid var(--neon);background:none;color:var(--neon);border-radius:999px;padding:12px}
+@media (prefers-reduced-motion:no-preference){.barra i{transition:width .4s}}
+#videos.ativa.modo-short{display:flex;flex-direction:column;overflow:hidden}
+#videos.modo-short #listaVideos{flex:1;min-height:0}

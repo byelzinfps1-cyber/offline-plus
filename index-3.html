@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050a18">
+<title>OFFLINE+</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <section id="inicio" class="tela ativa">
+    <h1>OFFLINE<span>+</span></h1>
+    <p class="sub">Seus vídeos, prontos para quando a internet acabar.</p>
+    <div class="card"><b id="inUso">0 MB</b> usados de <span id="inLimite">500 MB</span>
+      <div class="barra"><i id="inBarra"></i></div>
+      <small id="inContagem">Nenhum vídeo salvo ainda.</small></div>
+    <button class="btn" data-ir="biblioteca-tab">Adicionar vídeos do celular</button>
+    <button class="btn sec" data-ir="videos">Assistir Shorts</button>
+  </section>
+
+  <section id="videos" class="tela">
+    <div class="topo"><div class="seg" id="segVideos"><button class="on" data-k="short">Shorts</button><button data-k="full">Completos</button></div>
+    <input id="buscaVideos" type="search" placeholder="Buscar vídeos"></div>
+    <div id="chips" class="chips"></div>
+    <div id="listaVideos"></div>
+  </section>
+
+  <section id="chat" class="tela">
+    <h2>Chat</h2>
+    <div class="card"><b>Ainda não conectado.</b>
+    <p>Conversas entre celulares diferentes precisam de um servidor e de login. Não vou simular mensagens falsas. Na etapa do chat, vamos escolher e montar essa base.</p></div>
+  </section>
+
+  <section id="downloads" class="tela">
+    <div class="seg" id="segDown"><button class="on" data-k="fila">Fila</button><button data-k="biblioteca">Biblioteca</button></div>
+    <div id="painelFila">
+      <div class="card"><b id="dUso">0 MB</b> de <span id="dLimite">500 MB</span>
+        <div class="barra"><i id="dBarra"></i></div></div>
+      <div class="card"><b>Fila vazia</b>
+      <p>Downloads automáticos ainda não estão ligados: falta conectar uma fonte de vídeos que autorize baixar. Nada aqui é simulado.</p></div>
+    </div>
+    <div id="painelBib" hidden>
+      <label class="btn">Importar vídeos do celular<input id="arquivo" type="file" accept="video/*" multiple hidden></label>
+      <label class="campo">Categoria dos novos vídeos
+        <select id="catImport"></select></label>
+      <p id="aviso" class="aviso"></p>
+      <input id="buscaBib" type="search" placeholder="Buscar nos baixados">
+      <div id="listaBib"></div>
+    </div>
+  </section>
+
+  <section id="mais" class="tela">
+    <h2>Configurações</h2>
+    <label class="campo">Qualidade padrão
+      <select id="cfgQualidade"><option value="media">Média</option><option value="alta">Alta</option><option value="baixa">Baixa</option></select></label>
+    <label class="campo">Limite de armazenamento
+      <select id="cfgLimite"><option value="500">500 MB</option><option value="1000">1 GB</option><option value="2000">2 GB</option><option value="5000">5 GB</option></select></label>
+    <label class="campo">Máximo de Shorts na fila automática
+      <input id="cfgMax" type="number" min="1" max="50"></label>
+    <label class="linha"><input id="cfgWifi" type="checkbox"> Baixar no Wi-Fi</label>
+    <label class="linha"><input id="cfgMovel" type="checkbox"> Baixar com dados móveis</label>
+    <p class="aviso">As opções de download ficam salvas, mas só terão efeito quando houver uma fonte de vídeos conectada.</p>
+  </section>
+</main>
+
+<div id="player" hidden>
+  <video id="pv" playsinline controls></video>
+  <div class="pbar"><button id="pVolta">−10s</button><button id="pFecha">Fechar</button><button id="pAvanca">+10s</button></div>
+</div>
+
+<nav>
+  <button data-ir="inicio" class="on">Início</button>
+  <button data-ir="videos">Vídeos</button>
+  <button data-ir="chat">Chat</button>
+  <button data-ir="downloads">Downloads</button>
+  <button data-ir="mais">Mais</button>
+</nav>
+<script src="app.js"></script>
+</body>
+</html>
